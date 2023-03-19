@@ -1,0 +1,32 @@
+
+SELECT * FROM employees;
+
+SELECT * FROM employees WHERE first_name = "John";
+
+SELECT * FROM employess WHERE department_id BETWEEN 2 AND 3;
+
+SELECT * FROM employees WHERE department_id IN(2, 3) AND commission_pct IS NOT NULL;
+
+SELECT * FROM employees WHERE DAY(hire_date) = 1;
+
+SELECT * FROM employees WHERE YEAR(hire_date) = 2008;
+
+SELECT DATE_FORMAT(CURDATE() + INTERVAL 1 DAY,'Tomorrow is %D of %M') as tommorow_day FROM DUAL;
+
+SELECT *, DATE_FORMAT(hire_date, '%D of %M, %Y') FROM employees;
+
+SELECT *, CONCAT(salary, "$") FROM employees WHERE commission_pct = 0.2;
+
+SELECT * FROM employees WHERE MONTH(hire_date) = 1 and YEAR(hire_date) = 2007;
+
+SELECT NOW() as Now_time, NOW() + INTERVAL 1 SECOND as now_time1sec, NOW() + INTERVAL 1 MINUTE as now_time1min, NOW() + INTERVAL 1 HOUR as now_time1hour, NOW() + INTERVAL 1 DAY as now_time1day, NOW() + INTERVAL 1 MONTH as now_time1month, NOW() + INTERVAL 1 YEAR as now_time1year FROM DUAL;
+
+SELECT *, CONCAT("$", salary + salary/(100*commission_pct)) AS full_salary FROM employees;
+
+SELECT *, IF(commission_pct > 0, 'Yes', 'No') AS yes_or_no FROM employees;
+
+
+
+
+
+
