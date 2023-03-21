@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.32, for Linux (x86_64)
 --
--- Host: localhost    Database: factory
+-- Host: localhost    Database: zavod
 -- ------------------------------------------------------
 -- Server version	8.0.32-0ubuntu0.22.04.2
 
@@ -57,7 +57,8 @@ CREATE TABLE `departments` (
   PRIMARY KEY (`department_id`),
   KEY `manager_id` (`manager_id`),
   KEY `location_id` (`location_id`),
-  CONSTRAINT `location_id` FOREIGN KEY (`location_id`) REFERENCES `locations` (`location_id`)
+  CONSTRAINT `location_id` FOREIGN KEY (`location_id`) REFERENCES `locations` (`location_id`),
+  CONSTRAINT `manager_id3` FOREIGN KEY (`manager_id`) REFERENCES `employees` (`employee_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -97,7 +98,8 @@ CREATE TABLE `employees` (
   KEY `manager_id2` (`manager_id`),
   KEY `department_id2` (`department_id`),
   CONSTRAINT `department_id2` FOREIGN KEY (`department_id`) REFERENCES `departments` (`department_id`),
-  CONSTRAINT `job_id2` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`job_id`)
+  CONSTRAINT `job_id2` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`job_id`),
+  CONSTRAINT `maanager_id` FOREIGN KEY (`manager_id`) REFERENCES `employees` (`employee_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -232,4 +234,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-19  9:20:01
+-- Dump completed on 2023-03-21 15:23:54
